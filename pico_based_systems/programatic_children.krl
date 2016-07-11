@@ -1,11 +1,11 @@
 ruleset programatic_children {
 
   meta {
-    name Programatic Children
+    name "Programatic Children"
     
     description "Ruleset for Pico Lesson on Pico Based Systems"
 
-    author PJW
+    author "PJW"
 
   }
 
