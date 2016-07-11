@@ -9,11 +9,13 @@ ruleset programatic_children {
 
     use module v1_wrangler alias wrangler
 
+    provides showChildren
+
   }
 
   global {
 
-    showChildred = function() {
+    showChildren = function() {
       wrangler:children();
     }
   
