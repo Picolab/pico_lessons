@@ -12,6 +12,10 @@ ruleset programatic_children {
   }
 
   global {
+
+    showChildred = function() {
+      wrangler:children();
+    }
   
   }
 
