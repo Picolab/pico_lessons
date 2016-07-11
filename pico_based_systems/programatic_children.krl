@@ -7,6 +7,8 @@ ruleset programatic_children {
 
     author "PJW"
 
+    use module v1_wrangler alias wrangler
+
   }
 
   global {
@@ -19,7 +21,7 @@ ruleset programatic_children {
       name = "Test_Child_" + math:random(999);
     }
     {
-      createChild(name);
+      wrangler:createChild(name);
     }
     always{
       log("create child names " + name);
