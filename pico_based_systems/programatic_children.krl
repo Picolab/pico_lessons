@@ -9,6 +9,8 @@ ruleset programatic_children {
 
     use module v1_wrangler alias wrangler
 
+    sharing on
+
     provides showChildren
 
   }
