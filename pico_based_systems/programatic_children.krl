@@ -23,7 +23,7 @@ ruleset programatic_children {
   
   }
 
-  rule createChildren{
+  rule createAChild {
     select when pico_systems child_requested
     pre{
       name = "Test_Child_" + math:random(999);
@@ -36,4 +36,19 @@ ruleset programatic_children {
     }
   }
 
+  rule deleteAChild {
+    select when pico_systems child_deletion_requested
+    pre {
+      name = event:attr("name");
+    }
+    if(not name.isnull()) then {
+      wrangler:deleteChild(name)
+    }
+    fired {
+      log "Deleted child named " + name;
+    } else {
+      log "No child named " + name;
+    }
+
+  }
 }
