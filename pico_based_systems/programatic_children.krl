@@ -26,7 +26,8 @@ ruleset programatic_children {
   rule createAChild {
     select when pico_systems child_requested
     pre{
-      name = "Test_Child_" + math:random(999);
+      random_name = "Test_Child_" + math:random(999);
+      name = event:attr("name").defaultsTo(random_name);
     }
     {
       wrangler:createChild(name);
