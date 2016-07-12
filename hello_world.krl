@@ -19,8 +19,12 @@ A first ruleset for the Quickstart
   }
   rule hello_world {
     select when echo hello
+    pre {
+      my_name = event:attr("name")
+                   .klog("Here's the name I saw");
+    }
     send_directive("say") with
-      something = "Hello World";
+      something = "Hello " + my_name;
   }
  
 }
