@@ -52,4 +52,15 @@ ruleset programatic_children {
     }
 
   }
+
+  rule installRulesetInChild {
+    select when pico_systems ruleset_install_requested
+    pre {
+      rid = event:attr("rid");
+      pico_name = event:attr("name");
+    }
+    wrangler:installRulesets(rid) with
+      name = pico_name
+  }
+
 }
