@@ -21,7 +21,10 @@ A first ruleset for the Quickstart
     select when echo hello
     pre {
       my_name = event:attr("name")
-                   .klog("Here's the name I saw");
+                   .lc()
+                   .klog("Here's the name I saw: ")
+                   .uc()
+                   ;
     }
     send_directive("say") with
       something = "Hello " + my_name;
