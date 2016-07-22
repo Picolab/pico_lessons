@@ -55,7 +55,7 @@ Demonstrate subscriptions between two children
       if ( not pending_sub_name.isnull()
          ) then
          send_directive("subscription_approved")
-           with options = {"pendind_sub_name" : pendind_sub_name
+           with options = {"pendind_sub_name" : pending_sub_name
    	                  }
   }
 
