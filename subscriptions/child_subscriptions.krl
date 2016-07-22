@@ -6,7 +6,7 @@ Demonstrate subscriptions between two children
 >>
     author "PJW"
 
-    // use module v1_wrangler alias wrangler
+    use module v1_wrangler alias wrangler
     sharing on
 
     provides subs
