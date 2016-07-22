@@ -26,11 +26,11 @@ Demonstrate subscriptions between two children
 
     pre {
       sub_attrs = {
-        name: event:attr("name"),
-	name_space: "Closet",
-	my_role: event:attr("my_role"),
-	subscriber_role: event:attr("subscriber_role"),
-	subscriber_eci: event:attr("subscriber_eci")
+        "name": event:attr("name"),
+	"name_space": "Closet",
+	"my_role": event:attr("my_role"),
+	"subscriber_role": event:attr("subscriber_role"),
+	"subscriber_eci": event:attr("subscriber_eci")
       };
     }
     if ( not sub_attrs{"name"}.isnull()
