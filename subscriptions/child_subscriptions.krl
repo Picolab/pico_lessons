@@ -16,7 +16,7 @@ Demonstrate subscriptions between two children
 
     subs = function() {
        subs = wrangler:subscriptions(null, "name_space", "Closet");
-       subs{"subscriptions"}
+       subs
     }
 
   }
