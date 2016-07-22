@@ -39,7 +39,7 @@ Demonstrate subscriptions between two children
        send_directive("subscription_introduction_sent")
   	  with options = sub_attrs
     fired {
-      raise wrangler event subscription attributes sub_attrs;
+      raise wrangler event 'subscription' attributes sub_attrs;
       log "subcription introduction made"
     } else {
       log "missing required attributes " + sub_attr.encode()
@@ -57,6 +57,13 @@ Demonstrate subscriptions between two children
          send_directive("subscription_approved")
            with options = {"pendind_sub_name" : pending_sub_name
    	                  }
+     fired {
+       raise wrangler event 'pending_subscription_approval'
+             with channel_name = pending_sub_name
+       log "Approving subscription " + pending_sub_name;
+     } else {
+       log "No subscription name provided"
+     }
   }
 
 }
