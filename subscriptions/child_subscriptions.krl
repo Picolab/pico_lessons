@@ -9,7 +9,7 @@ Demonstrate subscriptions between two children
     // use module v1_wrangler alias wrangler
     sharing on
 
-    provides sub
+    provides subs
   }
 
   global {
