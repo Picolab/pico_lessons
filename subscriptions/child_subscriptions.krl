@@ -55,10 +55,29 @@ Demonstrate subscriptions between two children
       if ( not pending_sub_name.isnull()
          ) then
          send_directive("subscription_approved")
-           with options = {"pendind_sub_name" : pending_sub_name
+           with options = {"pending_sub_name" : pending_sub_name
    	                  }
      fired {
        raise wrangler event 'pending_subscription_approval'
+             with channel_name = pending_sub_name;
+       log "Approving subscription " + pending_sub_name;
+     } else {
+       log "No subscription name provided"
+     }
+  }
+
+  rule remove_subscription {
+      select when pico_systems subscription_deletion_requested
+      pre {
+        pending_sub_name = event:attr("sub_name");
+      }
+      if ( not pending_sub_name.isnull()
+         ) then
+         send_directive("subscription_approved")
+           with options = {"pending_sub_name" : pending_sub_name
+   	                  }
+     fired {
+       raise wrangler event 'subscription_cancellation'
              with channel_name = pending_sub_name;
        log "Approving subscription " + pending_sub_name;
      } else {
