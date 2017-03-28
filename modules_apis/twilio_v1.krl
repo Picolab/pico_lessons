@@ -1,4 +1,4 @@
-ruleset io.picolabs.twilio {
+ruleset io.picolabs.twilio_v1 {
   meta {
     name "Twilio SMS Module for Pico Lessons"
     description <<
@@ -20,7 +20,7 @@ ruleset io.picolabs.twilio {
     send_sms = defaction(to, from, message, account_sid, auth_token){
        base_url = "https://" + account_sid + ":" + auth_token + "@api.twilio.com/2010-04-01/Accounts/" + account_sid + "/"
        http:post("http://requestb.in/r7evu2r7") //base_url + "Messages.json")
-            with params = {
+            with body = {
                 "From":from,
                 "To":to,
                 "Body":message
