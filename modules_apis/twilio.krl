@@ -24,7 +24,7 @@ ruleset io.picolabs.twilio {
                 "From":from,
                 "To":to,
                 "Body":message
-            }
+            }.klog("Body: ")
     }
   }
 
