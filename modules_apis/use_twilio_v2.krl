@@ -6,7 +6,7 @@ Uses the module io.picolabs.twilio_v2 to show how module configuration and keys 
 >>
     author "Phil Windley"
 
-  	use module io.picolabs.twilio_keys 
+    use module io.picolabs.lesson_keys 
 
     use module io.picolabs.twilio_v2 alias twilio
         with account_sid = keys:twilio("account_sid")
