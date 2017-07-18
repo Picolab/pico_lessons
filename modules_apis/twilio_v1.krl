@@ -18,13 +18,12 @@ ruleset io.picolabs.twilio_v1 {
   global {
     
     send_sms = defaction(to, from, message, account_sid, auth_token){
-       base_url = <<https://#{account_sid}:#{auth_token}@api.twilio.com/2010-04-01/Accounts/#{account_sid}/>>
-       http:post(base_url + "Messages.json")
-            with form = {
-                "From":from,
-                "To":to,
-                "Body":message
-            }.klog("Body: ")
+      base_url = <<https://#{account_sid}:#{auth_token}@api.twilio.com/2010-04-01/Accounts/#{account_sid}/>>
+      http:post(base_url + "Messages.json", form =
+                    {"From":from,
+                     "To":to,
+                     "Body":message
+                    })
     }
   }
 
