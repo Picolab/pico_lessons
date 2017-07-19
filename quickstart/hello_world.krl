@@ -6,10 +6,7 @@ A first ruleset for the Quickstart
 >>
     author "Phil Windley"
     logging on
-
     shares hello
-    provides hello
- 
   }
   global {
     hello = function(obj) {
@@ -27,8 +24,7 @@ A first ruleset for the Quickstart
                    .uc()
                  
     }
-    send_directive("say") with
-      something = "Hello " + my_name
+    send_directive("say", {"something": "Hello World"})
   }
  
 }
