@@ -31,7 +31,6 @@ ruleset mischief {
         subs_attrs = thing_subs{"attributes"}
       }
       if subs_attrs{"subscriber_role"} == "thing" then
-        send_directive("hat lifted") with eci = subs_attrs{"outbound_eci"}
         event:send(
           { "eci": subs_attrs{"outbound_eci"}, "eid": "hat-lifted",
             "domain": "mischief", "type": "hat_lifted" }
