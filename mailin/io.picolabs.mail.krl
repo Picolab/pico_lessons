@@ -5,7 +5,8 @@ ruleset io.picolabs.mail {
   }
   global {
     __testing = { "queries": [ { "name": "__testing" } ],
-                  "events": [ ] }
+                  "events": [ { "domain": "mail", "type": "parsed",
+                                "attrs": [ "to", "text" ] } ] }
     newline = (13.chr() + "?" + 10.chr()).as("RegExp")
     var = function(s) {
       p = s.split(re#=#);
