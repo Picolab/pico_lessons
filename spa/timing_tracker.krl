@@ -35,7 +35,7 @@ ruleset timing_tracker {
     }
     if ent:timings >< key then noop()
     fired {
-      ent:timings := ent:timings.put([key,"time_in"], time:now())
+      ent:timings{[key,"time_in"]} := time:now()
     }
   }
 }
