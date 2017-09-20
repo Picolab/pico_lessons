@@ -1,0 +1,12 @@
+title Strategy
+
+autonumber 
+Alice->CloudMailin:Sends an email message\nwhose body contains a\nlist of events/attributes
+CloudMailin->Mail Pico:HTTP POST email mssage\nto a configured webhook\n/sky/event/.../mail/received
+note over Mail Pico:rule mail_received
+Mail Pico->Mail Pico:raise mail event "parsed"
+note over Mail Pico:rule mail_router
+Mail Pico->Target Pico:send event mail:events
+note over Target Pico:rule mail_events
+Mail Pico-->Target Pico:provides parse function
+Target Pico->Target Pico:raise events parsed\nfrom the body of\nthe email message
