@@ -34,24 +34,24 @@ ruleset mischief.owner {
       thing2 = ent:things[1]
     }
     if mischief && thing1 && thing2 then every {
+      // introduce mischief pico to thing1 pico
       event:send(
         { "eci": mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
           "attrs": { "name": "thing1",
-                     "name_space": "mischief",
-                     "my_role": "controller",
-                     "subscriber_role": "thing",
+                     "Rx_role": "controller",
+                     "Tx_role": "thing",
                      "channel_type": "subscription",
-                     "subscriber_eci": thing1 } } )
+                     "wellKnown_Tx": thing1 } } )
+      // introduce mischief pico to thing2 pico
       event:send(
         { "eci": mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
           "attrs": { "name": "thing2",
-                     "name_space": "mischief",
-                     "my_role": "controller",
-                     "subscriber_role": "thing",
+                     "Rx_role": "controller",
+                     "Tx_role": "thing",
                      "channel_type": "subscription",
-                     "subscriber_eci": thing2 } } )
+                     "wellKnown_Tx": thing2 } } )
     }
   }
 }
