@@ -7,7 +7,7 @@ ruleset mischief {
       "The Cat in the Hat"
     >>
     author "Picolabs"
-    use module io.picolabs.pico alias wrangler
+    use module io.picolabs.wrangler alias wrangler
     use module Subscriptions
     shares __testing
   }
@@ -19,9 +19,9 @@ ruleset mischief {
   rule mischief_identity {
     select when mischief identity
     event:send(
-      { "eci": wrangler:parent().eci, "eid": "mischief-identity",
+      { "eci": wrangler:parent_eci(), "eid": "mischief-identity",
         "domain": "mischief", "type": "who",
-        "attrs": { "eci": wrangler:myself().eci } } )
+        "attrs": { "eci": wrangler:myself(){"eci"} } } )
   }
   rule mischief_hat_lifted {
     select when mischief hat_lifted
