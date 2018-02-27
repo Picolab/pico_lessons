@@ -8,7 +8,7 @@ ruleset mischief {
     >>
     author "Picolabs"
     use module io.picolabs.wrangler alias wrangler
-    use module Subscriptions
+    use module io.picolabs.subscription alias Subscriptions
     shares __testing
   }
   global {
