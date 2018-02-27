@@ -18,7 +18,7 @@ ruleset mischief.owner {
     select when mischief who
     pre {
       mischief = event:attr("eci")
-      things = wrangler:children().map(function(v){v.eci})
+      things = wrangler:children().map(function(v){v{"eci"}})
                                   .filter(function(v){v != mischief})
     }
     always {
