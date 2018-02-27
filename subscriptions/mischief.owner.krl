@@ -39,8 +39,8 @@ ruleset mischief.owner {
         { "eci": mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
           "attrs": { "name": "thing1",
-                     "Rx_role": "controller",
-                     "Tx_role": "thing",
+                     "Rx_role": "thing",
+                     "Tx_role": "controller",
                      "channel_type": "subscription",
                      "wellKnown_Tx": thing1 } } )
       // introduce mischief pico to thing2 pico
@@ -48,8 +48,8 @@ ruleset mischief.owner {
         { "eci": mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
           "attrs": { "name": "thing2",
-                     "Rx_role": "controller",
-                     "Tx_role": "thing",
+                     "Rx_role": "thing",
+                     "Tx_role": "controller",
                      "channel_type": "subscription",
                      "wellKnown_Tx": thing2 } } )
     }
