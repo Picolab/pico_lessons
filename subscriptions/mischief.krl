@@ -25,15 +25,13 @@ ruleset mischief {
   }
   rule mischief_hat_lifted {
     select when mischief hat_lifted
-    foreach Subscriptions:getSubscriptions() setting (subscription)
+    foreach Subscriptions:established("Rx_role","thing") setting (subscription)
       pre {
         thing_subs = subscription.klog("subs")
-        subs_attrs = thing_subs{"attributes"}
       }
-      if subs_attrs{"subscriber_role"} == "thing" then
-        event:send(
-          { "eci": subs_attrs{"outbound_eci"}, "eid": "hat-lifted",
-            "domain": "mischief", "type": "hat_lifted" }
-        )
+      event:send(
+        { "eci": subscription{"Tx"}, "eid": "hat-lifted",
+          "domain": "mischief", "type": "hat_lifted" }
+      )
   }
 }
