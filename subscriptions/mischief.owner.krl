@@ -28,30 +28,15 @@ ruleset mischief.owner {
   }
   rule mischief_subscriptions {
     select when mischief subscriptions
-    pre {
-      mischief = ent:mischief
-      thing1 = ent:things[0]
-      thing2 = ent:things[1]
-    }
-    if mischief && thing1 && thing2 then every {
-      // introduce mischief pico to thing1 pico
+    foreach ent:things setting(thing,index)
+      // introduce mischief pico to thing[index] pico
       event:send(
-        { "eci": mischief, "eid": "subscription",
+        { "eci": ent:mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
-          "attrs": { "name": "thing1",
+          "attrs": { "name": "thing" + (index+1),
                      "Rx_role": "thing",
                      "Tx_role": "controller",
                      "channel_type": "subscription",
-                     "wellKnown_Tx": thing1 } } )
-      // introduce mischief pico to thing2 pico
-      event:send(
-        { "eci": mischief, "eid": "subscription",
-          "domain": "wrangler", "type": "subscription",
-          "attrs": { "name": "thing2",
-                     "Rx_role": "thing",
-                     "Tx_role": "controller",
-                     "channel_type": "subscription",
-                     "wellKnown_Tx": thing2 } } )
-    }
+                     "wellKnown_Tx": thing } } )
   }
 }
