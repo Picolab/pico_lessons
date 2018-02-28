@@ -34,8 +34,8 @@ ruleset mischief.owner {
         { "eci": ent:mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
           "attrs": { "name": "thing" + (index+1),
-                     "Rx_role": "thing",
-                     "Tx_role": "controller",
+                     "Rx_role": "controller",
+                     "Tx_role": "thing",
                      "channel_type": "subscription",
                      "wellKnown_Tx": thing } } )
   }
