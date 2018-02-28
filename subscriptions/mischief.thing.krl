@@ -7,10 +7,15 @@ ruleset mischief.thing {
       "The Cat in the Hat"
     >>
     author "Picolabs"
-    shares __testing
+    shares __testing, status
   }
   global {
-    __testing = { "queries": [ { "name": "__testing" } ] }
+    __testing = { "queries": [ { "name": "__testing" },
+                               { "name": "status" } ],
+                  "events": [ { "domain": "mischief", "type": "mom_home" } ] }
+    status = function() {
+      ent:status.defaultsTo("inactive") + " level " + ent:serial.defaultsTo(0)
+    }
   }
   rule auto_accept {
     select when wrangler inbound_pending_subscription_added
@@ -24,9 +29,15 @@ ruleset mischief.thing {
   }
   rule mischief_hat_lifted {
     select when mischief hat_lifted
-    always {
+    fired {
       ent:status := "active";
       ent:serial := ent:serial.defaultsTo(0) + 1
+    }
+  }
+  rule mischief_mom_coming_home {
+    select when mischief mom_home
+    fired {
+      ent:status := "inactive";
     }
   }
 }
