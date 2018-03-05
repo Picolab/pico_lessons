@@ -25,7 +25,7 @@ ruleset mischief {
   }
   rule mischief_hat_lifted {
     select when mischief hat_lifted
-    foreach Subscriptions:established("Rx_role","thing") setting (subscription)
+    foreach Subscriptions:established("Tx_role","thing") setting (subscription)
       pre {
         thing_subs = subscription.klog("subs")
       }
