@@ -33,7 +33,7 @@ ruleset mischief.owner {
       event:send(
         { "eci": ent:mischief, "eid": "subscription",
           "domain": "wrangler", "type": "subscription",
-          "attrs": { "name": "thing" + (index+1),
+          "attrs": { "name": "thing" + (index.as("Number")+1),
                      "Rx_role": "controller",
                      "Tx_role": "thing",
                      "channel_type": "subscription",
