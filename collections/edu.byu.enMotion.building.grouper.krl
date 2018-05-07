@@ -31,7 +31,7 @@ ruleset edu.byu.enMotion.building.grouper {
     pre {
       name_prefix = event:attr("name_prefix");
       group_name = name_prefix + " Rooms";
-      rids = "edu.byu.enMotion.collection;io.picolabs.subscription";
+      rids = "io.picolabs.collection;io.picolabs.subscription";
       child_specs = { "name": group_name, "name_prefix": name_prefix,
         "rids": rids, "color": "#002e5d" };
     }
