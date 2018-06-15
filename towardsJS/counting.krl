@@ -25,8 +25,8 @@ ruleset counting {
       ent:counts.filter(function(c,n){c>threshold})
     }
     countersAt = function(value){
-      target = value.as("Number").klog("value");
-      ent:counts.filter(function(c,n){c.klog("c")==target}).keys()
+      target = value.as("Number");
+      ent:counts.filter(function(c,n){c==target}).keys()
     }
     totalCount = function(){
       ent:counts.values().reduce(function(a,n){a+n})
