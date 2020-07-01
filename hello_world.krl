@@ -5,13 +5,12 @@ ruleset hello_world {
 A first ruleset for the Quickstart
 >>
     author "Phil Windley"
-    logging on
     shares hello
   }
   
   global {
     hello = function(obj) {
-      msg = "Hello " + obj;
+      msg = "Hello " + obj
       msg
     }
   }
