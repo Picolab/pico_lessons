@@ -18,6 +18,16 @@ ruleset journal {
     }
   }
   
+  rule init {
+    select when wrangler ruleset_added where rids >< meta:rid
+    pre {
+      
+    }
+    always {
+      ent:journal := []
+    }
+  }
+  
   rule set {
     select when journal new_entry
     pre {
@@ -37,7 +47,7 @@ ruleset journal {
       
     }
     always {
-      clear ent:entries
+      ent:entries := []
     }
   }
 }
