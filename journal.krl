@@ -24,7 +24,7 @@ ruleset journal {
       
     }
     always {
-      ent:journal := []
+      ent:entries := []
     }
   }
   
